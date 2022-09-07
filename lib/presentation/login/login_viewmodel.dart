@@ -1,6 +1,7 @@
+import 'package:fin_task/app/app_prefs.dart';
 import 'package:fin_task/app/constants.dart';
 import 'package:fin_task/app/extentions.dart';
-import 'package:fin_task/data/freezed_data/freezed_data.dart';
+import 'package:fin_task/data/freezed_object/freezed_object.dart';
 import 'package:fin_task/presentation/base/base_viewmodel.dart';
 import 'package:fin_task/presentation/resources/strings_manager.dart';
 import 'package:fin_task/presentation/resources/value_manager.dart';
@@ -12,6 +13,10 @@ class LoginViewModel extends BaseViewModel
   final _passwordStreamController = BehaviorSubject<String>();
   final _isValidToLoginStreamController = BehaviorSubject<void>();
   final loginSuccessStreamController = BehaviorSubject<void>();
+
+  final AppPreferences _appPreferences;
+
+  LoginViewModel(this._appPreferences);
 
   LoginObject _loginObject = LoginObject("", "");
 
@@ -29,12 +34,11 @@ class LoginViewModel extends BaseViewModel
 
   @override
   void login() {
-    String userName = _loginObject.userName;
-    String password = _loginObject.password;
-    if (userName == AppConstants.validUserName &&
-        password == AppConstants.validPassword) {
+    if (_loginObject.userName == AppConstants.validUserName &&
+        _loginObject.password == AppConstants.validPassword) {
       popUpLoadingState();
       Future.delayed(DurationManager.secondFive, () {
+        _appPreferences.setUserLoggedIn();
         hideState();
         loginSuccessStreamController.add(null);
       });

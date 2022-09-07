@@ -1,3 +1,4 @@
+import 'package:fin_task/app/di.dart';
 import 'package:fin_task/presentation/home/home.dart';
 import 'package:fin_task/presentation/login/login.dart';
 import 'package:fin_task/presentation/resources/strings_manager.dart';
@@ -16,6 +17,7 @@ class RouteGenerator {
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashView());
       case Routes.loginRoute:
+        initLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeView());

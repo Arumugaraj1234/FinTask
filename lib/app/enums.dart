@@ -9,3 +9,5 @@ enum StateRendererType {
 }
 
 enum StateRendererAction { ok, retry, success }
+
+enum SortType { byName, byAge, byCity }

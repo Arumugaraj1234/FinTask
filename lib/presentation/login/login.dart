@@ -1,3 +1,4 @@
+import 'package:fin_task/app/di.dart';
 import 'package:fin_task/presentation/login/login_viewmodel.dart';
 import 'package:fin_task/presentation/resources/asset_manager.dart';
 import 'package:fin_task/presentation/resources/color_manager.dart';
@@ -22,7 +23,7 @@ class _LoginViewState extends State<LoginView> {
   final _passwordTextEditingController = TextEditingController();
   final _userNameFocusNode = FocusNode();
   final _passwordFocusNode = FocusNode();
-  final _viewModel = LoginViewModel();
+  final _viewModel = instance<LoginViewModel>();
 
   _bind() async {
     _viewModel.start();

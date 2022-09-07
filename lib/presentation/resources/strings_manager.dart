@@ -10,5 +10,9 @@ class AppStrings {
   static const String userNameError = "Username must be10 characters";
   static const String passwordError =
       "Password must be 7 Characters with 1UpperCase Alphabet and 1SpecialCharacter and Numeric";
-  static const String invalidCredentialError = "Invalid credential. Please provide valid credentials";
+  static const String invalidCredentialError =
+      "Invalid credential. Please provide valid credentials";
+  static const String sortByName = "Sort By Name";
+  static const String sortByAge = "Sort By Age";
+  static const String sortByCity = "Sort By City";
 }
